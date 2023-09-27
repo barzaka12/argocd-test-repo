@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-test
+  name: truecommand-test
 spec:
   replicas: 16
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: nginx-test
+      app: truecommand-test
   template:
     metadata:
       labels:
-        app: nginx-test
+        app: truecommand-test
     spec:
       containers:
-      - image: nginx:1.14.2
-        name: nginx-test
+      - image: docker.io/ixsystems/truecommand
+        name: truecommand-test
         ports:
         - containerPort: 80
         livenessProbe:
